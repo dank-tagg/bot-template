@@ -14,5 +14,14 @@ load_dotenv(dotenv_path)
 # Bot constructor, edit this to your needs.
 bot = commands.Bot(prefix=environ.get("prefix"))
 
+# If you want to add commands, you can do it here.
+# Or, if you want a more organized file structure, add ./cogs folder and use cogs
+# If you do use cogs, you can use the code below to load the cogs.
+'''
+for file in os.listdir("./cogs"):
+    if file.endswith(".py"):
+        bot.load_extension(f"cogs.{file[:-3]}")
+'''
+
 # Starting the bot
 bot.run(environ.get("token"))
