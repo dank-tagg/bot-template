@@ -15,9 +15,17 @@ load_dotenv(dotenv_path)
 # Bot constructor, edit this to your needs.
 bot = commands.Bot(command_prefix="?")
 
+
+#loading cogs, you can skip this part if you dont use cogs
 for file in os.listdir("./cogs"):
     if file.endswith(".py"):
         bot.load_extension(f"cogs.{file[:-3]}")
+
+#basic command
+@bot.command()
+async def command(ctx):
+    return await ctx.send("Hi") #sends the message `Hi` to the invoking channel.
+
 
 
 # Starting the bot
